@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Shops.BLL.Interfaces;
 using Shops.Models;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace Shops.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IShopService _service;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -20,7 +22,9 @@ namespace Shops.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var shops = _service.GetAll();
+
+            return View(shops);
         }
 
         public IActionResult Privacy()
