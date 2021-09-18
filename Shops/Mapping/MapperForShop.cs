@@ -2,10 +2,7 @@
 using Shops.BLL.ModelsBLL;
 using Shops.BLL.NewFolder;
 using Shops.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Shops.Mapping
 {

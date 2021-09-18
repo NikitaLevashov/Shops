@@ -2,11 +2,8 @@
 using Shops.BLL.ModelsBLL;
 using Shops.BLL.NewFolder;
 using Shops.DAL.ModelsDAL;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Shops.BLL.Mapping
 {

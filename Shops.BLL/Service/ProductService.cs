@@ -1,13 +1,8 @@
 ﻿using Shops.BLL.Interfaces;
 using Shops.BLL.Mapping;
 using Shops.BLL.ModelsBLL;
-using Shops.BLL.NewFolder;
 using Shops.DAL.Intefaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shops.BLL.Service
 {
