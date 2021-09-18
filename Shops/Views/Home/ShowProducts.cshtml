@@ -29,7 +29,7 @@
 </style>
 
 <body>
-    <h3><b>Products</b></h3>
+    <h3><b>@Model.Name</b></h3>
     <h2></h2>
     <form method="get">
         <button asp-controller="Product" asp-action="Create">Add new product</button>
@@ -37,7 +37,6 @@
     <h2></h2>
     <table border="1">
         <tr>
-            <td width="120" style="font-weight: bold">Id</td>
             <td width="120" style="font-weight: bold">Name</td>
             <td width="120" style="font-weight: bold">Description</td>
             <td width="120" style="font-weight: bold">Delete product</td>
@@ -55,7 +54,6 @@
 
         <table border="1">
             <tr>
-                <td width="120">@Model.Products.ElementAt(i).Id</td>
                 <td width="120">@Model.Products.ElementAt(i).Name</td>
                 <td width="120">@Model.Products.ElementAt(i).Description</td>
                 <td width="120" style="color: blue; text-decoration: underline" ; class="@item">Delete</td>
