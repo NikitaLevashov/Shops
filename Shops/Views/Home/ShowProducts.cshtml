@@ -1,0 +1,85 @@
+﻿@{
+    Layout = null;
+}
+
+@model Shop;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Products</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<style>
+    div {
+        width: 30%;
+        background: gray;
+        padding: 20px;
+        -webkit-box-sizing: border-box;
+        border-width: 2px;
+        border-color: palevioletred;
+    }
+
+    tr:hover {
+        background: #d5e6a2;
+    }
+</style>
+
+<body>
+    <h3><b>Products</b></h3>
+    <h2></h2>
+    <form method="get">
+        <button asp-controller="Product" asp-action="Create">Add new product</button>
+    </form>
+    <h2></h2>
+    <table border="1">
+        <tr>
+            <td width="120" style="font-weight: bold">Id</td>
+            <td width="120" style="font-weight: bold">Name</td>
+            <td width="120" style="font-weight: bold">Description</td>
+            <td width="120" style="font-weight: bold">Delete product</td>
+            <td width="120" style="font-weight: bold">Update product</td>
+        </tr>
+    </table>
+
+    @{
+        var item = 0;
+    }
+
+    @for (int i = 0; i <= @Model.Products.Count() - 1; i++)
+    {
+        item = @Model.Products.ElementAt(i).Id;
+
+        <table border="1">
+            <tr>
+                <td width="120">@Model.Products.ElementAt(i).Id</td>
+                <td width="120">@Model.Products.ElementAt(i).Name</td>
+                <td width="120">@Model.Products.ElementAt(i).Description</td>
+                <td width="120" style="color: blue; text-decoration: underline" ; class="@item">Delete</td>
+                <td width="120" style="color: blue; text-decoration: underline" ; id="@item">Update</td>
+            </tr>
+        </table>
+    }
+
+    <script>
+       for (let i = @Model.Products.First().Id; i <= @Model.Products.Last().Id; i++) { $(document).ready(function () {
+            $('.' + i).click(function foo() {
+                window.location.href = '/Product/Delete?id=' + i;
+            });
+        });
+    }
+    </script>
+    <script>
+       for (let i = @Model.Products.First().Id; i <= @Model.Products.Last().Id; i++) { $(document).ready(function () {
+            $('#' + i).click(function foo() {
+                window.location.href = '/Product/Update?id=' + i;
+            });
+        });
+    }
+    </script>
+</body>
+</html>
+

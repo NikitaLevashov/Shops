@@ -24,13 +24,14 @@ namespace Shops.DAL.Repository
 
         public void Delete(int id)
         {
-            ProductDAL product = _context.Products.Find(id);
+            var product = _context.Products.Find(id);
             if (product != null)
                 _context.Products.Remove(product);
         }
 
         public ProductDAL Get(int id)
         {
+            var t = _context.Products.Find(id);
             return _context.Products.Find(id);
         }
 

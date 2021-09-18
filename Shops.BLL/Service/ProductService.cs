@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Shops.BLL.Service
 {
-    public class ProductService /*: IShopService*/
+    public class ProductService : IProductService
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -19,36 +19,33 @@ namespace Shops.BLL.Service
         {
             _unitOfWork = unitOfWork;
         }
-        //public void Create(ProductBLL item)
-        //{
-        //    _unitOfWork.Products
-        //    throw new NotImplementedException();
-        //}
+
+        public void Create(ProductBLL item)
+        {
+            _unitOfWork.Products.Create(item.MapToDALProduct());
+            _unitOfWork.Save();
+        }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _unitOfWork.Products.Delete(id);
+            _unitOfWork.Save();
         }
 
         public ProductBLL Get(int id)
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Products.Get(id).MapToBLLProduct();
         }
 
         public IEnumerable<ProductBLL> GetAll()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Products.GetAll().MapToEnumerableBLLProduct();
         }
 
         public void Update(ProductBLL item)
         {
-            throw new NotImplementedException();
+            _unitOfWork.Products.Update(item.MapToDALProduct());
+            _unitOfWork.Save();
         }
-
-        //IEnumerable<ShopBLL> IShopService.GetAll()
-        //{
-        //    _unitOfWork.Shops.GetAll().MapToEnumerableBLLShop();
-
-        //}
     }
 }

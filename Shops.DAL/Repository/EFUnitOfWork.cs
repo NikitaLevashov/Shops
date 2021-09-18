@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Shops.DAL.Repository
 {
-    public class EFUnitOfWork
+    public class EFUnitOfWork : IUnitOfWork
     {
         private ShopContext _context;
         private ShopRepository shopRepository;
@@ -18,7 +18,7 @@ namespace Shops.DAL.Repository
         {
             _context = context;
         }
-        public IRepository<ShopDAL> Shopes
+        public IRepository<ShopDAL> Shops
         {
             get
             {

@@ -15,7 +15,7 @@ namespace Shops.DAL.EFCore
             {
                 ShopDAL shop1 = new ShopDAL { Name = "SportShop", Adress = "100, Lenina avenue, Minsk", OperatingMode = "10:00 - 20:00" };
                 ShopDAL shop2 = new ShopDAL { Name = "ProductShop", Adress = "20, Esenina avenue, Minsk", OperatingMode = "9:00 - 23:00" };
-                ShopDAL shop3 = new ShopDAL { Name = "ElectronicsStore", Adress = "34, Pushkina avenue, Minsk", OperatingMode = "10:00 - 22:00" };
+                ShopDAL shop3 = new ShopDAL { Name = "ElectronicShop", Adress = "34, Pushkina avenue, Minsk", OperatingMode = "10:00 - 22:00" };
 
                 context.Shops.AddRange(shop1, shop2, shop3);
 

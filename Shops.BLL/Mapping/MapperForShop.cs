@@ -26,9 +26,9 @@ namespace Shops.BLL.Mapping
         public static IEnumerable<ProductBLL> MapToEnumerableBLLProduct(this IEnumerable<ProductDAL> products) 
             => MapperForBLL().Map<IEnumerable<ProductDAL>, IEnumerable<ProductBLL>>(products);
         public static ProductBLL MapToBLLProduct(this ProductDAL product) 
-            => MapperForDAL().Map<ProductDAL, ProductBLL>(product);
+            => MapperForBLL().Map<ProductDAL, ProductBLL>(product);
         public static ProductDAL MapToDALProduct(this ProductBLL product)
-            => MapperForBLL().Map<ProductBLL, ProductDAL>(product);
+            => MapperForDAL().Map<ProductBLL, ProductDAL>(product);
         
         private static Mapper MapperForBLL()
         {
@@ -46,7 +46,6 @@ namespace Shops.BLL.Mapping
                    .ForMember(d => d.Description, d => d.MapFrom(s => s.Description))
                    .ForMember(d => d.Shop, d => d.MapFrom(s => s.Shop))
                    .ForMember(d => d.ShopId, d => d.MapFrom(s => s.ShopId));
-
             });
 
             return new Mapper(mapper);

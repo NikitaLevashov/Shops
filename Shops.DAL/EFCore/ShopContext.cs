@@ -15,7 +15,7 @@ namespace Shops.DAL.EFCore
         public DbSet<ProductDAL> Products { get; set; }
         public ShopContext(DbContextOptions<ShopContext> options) : base(options)
         {
-            Database.EnsureCreated();
+            Database.EnsureCreated();          
         }
     }
 }

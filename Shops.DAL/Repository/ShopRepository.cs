@@ -32,7 +32,7 @@ namespace Shops.DAL.Repository
 
         public ShopDAL Get(int id)
         {
-            return _context.Shops.Find(id);
+            return _context.Shops.Include(x=>x.Products).FirstOrDefault(x=>x.Id == id);
         }
 
         public IEnumerable<ShopDAL> GetAll()

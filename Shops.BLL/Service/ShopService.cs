@@ -18,27 +18,30 @@ namespace Shops.BLL.Service
         {
             _unitOfWork = unitOfWork;
         }
-        public void Create(ProductBLL item)
-        {            
-        }
-        public void Delete(int id)
+
+        public void Create(ShopBLL item)
         {
-            
+            _unitOfWork.Shops.Create(item.MapToDALShop());
         }
 
-        public ProductBLL Get(int id)
+        public void Delete(int id)
         {
-            throw new Exception();
+            _unitOfWork.Shops.Delete(id);
+        }
+
+        public ShopBLL Get(int id)
+        {
+            return _unitOfWork.Shops.Get(id).MapToBLLShop();
         }
 
         public IEnumerable<ShopBLL> GetAll()
         {
-            return _unitOfWork.Shops.GetAll().MapToEnumerableBLLShop();
+           return _unitOfWork.Shops.GetAll().MapToEnumerableBLLShop();
         }
 
-        //public void Update(ProductBLL item)
-        //{
-        //    _unitOfWork.Shops.Update(item);
-        //}
+        public void Update(ShopBLL item)
+        {
+            _unitOfWork.Shops.Update(item.MapToDALShop());
+        }
     }
 }

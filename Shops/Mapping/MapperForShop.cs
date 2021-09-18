@@ -24,10 +24,10 @@ namespace Shops.Mapping
             => MapperForUI().Map<IEnumerable<ProductBLL>, IEnumerable<Product>>(products);
         public static IEnumerable<ProductBLL> MapToEnumerableBLLProduct(this IEnumerable<Product> products)
             => MapperForBLL().Map<IEnumerable<Product>, IEnumerable<ProductBLL>>(products);
-        public static ProductBLL MapToEnumerableBLLProduct(this Product product)
-            => MapperForUI().Map<Product, ProductBLL>(product);
-        public static Product MapToEnumerableUIProduct(this ProductBLL product)
-            => MapperForBLL().Map<ProductBLL, Product>(product);
+        public static ProductBLL MapToProduct(this Product product)
+            => MapperForBLL().Map<Product, ProductBLL>(product);
+        public static Product MapToUIProduct(this ProductBLL product)
+            => MapperForUI().Map<ProductBLL, Product>(product);
 
         private static Mapper MapperForBLL()
         {
