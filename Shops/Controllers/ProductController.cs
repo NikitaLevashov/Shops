@@ -13,11 +13,9 @@ namespace Shops.Controllers
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
-        private readonly IShopService _shopService;
         public ProductController(IProductService productService, IShopService shopService)
         {
-            _productService = productService;
-            _shopService = shopService;
+            _productService = productService ?? throw new ArgumentNullException();
         }
         public IActionResult Index()
         {
